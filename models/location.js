@@ -1,7 +1,6 @@
-'use strict'
 module.exports = (sequelize, DataTypes) => {
   const location = sequelize.define(
-    'location',
+    'locations',
     {
       id: {
         type: DataTypes.STRING,
@@ -9,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
         unique: true
       },
       name: DataTypes.STRING,
+      address: {
+        type: DataTypes.STRING,
+        unique: true
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,
@@ -21,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     {
-      tablename: 'location'
+      tablename: 'locations'
     }
   )
   location.associate = function(models) {

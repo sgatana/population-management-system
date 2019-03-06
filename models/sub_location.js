@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
   )
   sub_location.associate = function(models) {
     // associations can be defined here
-   sub_location.hasMany(models.resident, {
+   sub_location.hasMany(models.residents, {
      as: 'residents',
      foreignKey: 'subLocationId'
    })

@@ -1,7 +1,7 @@
 'use strict'
 module.exports = (sequelize, DataTypes) => {
   const resident = sequelize.define(
-    'resident',
+    'residents',
     {
       id: {
         type: DataTypes.STRING,
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     {
-      tablename: 'resident'
+      tablename: 'residents'
     }
   )
   return resident

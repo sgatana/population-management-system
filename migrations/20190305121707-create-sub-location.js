@@ -10,9 +10,10 @@ module.exports = {
       locationId: {
         type: Sequelize.STRING,
         field: 'location_id',
+        unique: true,
         references: {
-          model: 'location',
-          key: 'id',
+          model: 'locations',
+          key: 'id'
         },
         onDelete: 'cascade',
         onUpdate: 'cascade'

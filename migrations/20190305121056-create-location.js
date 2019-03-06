@@ -1,13 +1,17 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('location', {
+    return queryInterface.createTable('locations', {
       id: {
         unique: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       name: {
         type: Sequelize.STRING
+      },
+      address: {
+        type: Sequelize.STRING,
+        unique: true
       },
       createdAt: {
         allowNull: false,
@@ -19,9 +23,9 @@ module.exports = {
         type: Sequelize.DATE,
         field: 'updated_at'
       }
-    });
+    })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('location');
+    return queryInterface.dropTable('locations')
   }
-};
+}
