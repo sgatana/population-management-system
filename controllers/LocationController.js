@@ -2,6 +2,7 @@ const LocationRepository = require('../lib/locations')
 const formatGetLocationResponse = require(
   '../lib/adapters/location/formatGetLocationResponse'
   )
+const formatListLocations = require('../lib/adapters/location/formatListLocationsResponse')
 class LocationController {
   static async addLocation(req, res) {
     try {
@@ -20,8 +21,10 @@ class LocationController {
   static async listLocations(req, res) {
     try {
       const locations = await LocationRepository.listLocations()
+      const formattedLocations = formatListLocations(locations)
+      console.log('+++++', formattedLocations)
       res.status(200).json({
-        locations
+        locations: formattedLocations
       })
     } catch (error) {
       res.status(error.status || 400)

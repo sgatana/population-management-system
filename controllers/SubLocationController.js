@@ -9,7 +9,6 @@ class SubLocationController{
       message: 'successfully added a sublocation'
     })
   } catch (error) {
-    console.log(error)
     res.status(error.status || 400)
     res.send({
       error: error.message
