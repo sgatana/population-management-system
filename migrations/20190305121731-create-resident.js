@@ -11,10 +11,10 @@ module.exports = {
       gender: Sequelize.STRING,
       subLocationId: {
         type: Sequelize.STRING,
-        unique: true,
+        allowNull: false,
         field: 'sub_location_id',
         references: {
-          model: 'sub_location',
+          model: 'sub_locations',
           key: 'id'
         },
         onDelete: 'cascade',

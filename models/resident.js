@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       gender: DataTypes.STRING,
       subLocationId: {
         type: DataTypes.STRING,
-        unique: true,
+        allowNull: false,
         field: 'sub_location_id'
       },
       createdAt: {

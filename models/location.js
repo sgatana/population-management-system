@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       address: {
         type: DataTypes.STRING,
-        unique: true
+        unique: true,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -29,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
   )
   location.associate = function(models) {
     // associations can be defined here
-    location.hasMany(models.sub_location, {
+    location.hasMany(models.sub_locations, {
       as: 'sub_locations',
       foreignKey: 'locationId'
     })

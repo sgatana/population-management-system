@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('sub_location', {
+    return queryInterface.createTable('sub_locations', {
       id: {
         type: Sequelize.STRING,
         primaryKey: true,
@@ -10,7 +10,7 @@ module.exports = {
       locationId: {
         type: Sequelize.STRING,
         field: 'location_id',
-        unique: true,
+        allowNull: false,
         references: {
           model: 'locations',
           key: 'id'
@@ -32,6 +32,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('sub_location');
+    return queryInterface.dropTable('sub_locations');
   }
 };
