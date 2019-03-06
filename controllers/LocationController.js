@@ -1,4 +1,4 @@
-const LocationRepository = require('../lib/location')
+const LocationRepository = require('../lib/locations')
 const formatGetLocationResponse = require(
   '../lib/adapters/location/formatGetLocationResponse'
   )
