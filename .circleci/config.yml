@@ -1,0 +1,37 @@
+version: 2
+jobs:
+  build:
+    environment:
+      CC_TEST_REPORTER_ID: 19369e6b1fd265395e6a6002c6bf991c42d706e66f5182e88978b8246be82a54
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:9.10.1
+        environment:
+         PG_HOST: localhost
+         PGUSER: circleci
+         database: circleci
+      - image: postgres:9.6
+        environment:
+          POSTGRES_USER: circleci
+          POSTGRES_DB: circleci
+          POSTGRES_PASSWORD: ''
+    branches:
+      only:
+        - master
+        - develop
+    
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn global add sequelize-cli
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run: 
+          name: Run Test
+          command: |
+            ./cc-test-reporter before-build
+            yarn test
+            ./cc-test-reporter after-build --coverage-input-type lcov --exit-code $?

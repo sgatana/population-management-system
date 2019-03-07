@@ -39,11 +39,15 @@
       "**/*.js",
       "!**/*/spec.js",
       "!**/node_moduleas",
-      "!**/server.js",
+      "!**/index.js",
       "!**/config/**",
       "!**/models/**",
       "!**/migrations/**",
-      "**/coverage/**"
+      "!**/coverage/**",
+      "!**/databaseCleaner.js",
+      "!**/start/**",
+      "!**/controllers/**",
+      "!**/lib/adapters/**"
     ],
     "setupFilesAfterEnv": [
       "./testSetup.js"

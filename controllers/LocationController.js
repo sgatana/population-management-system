@@ -22,7 +22,6 @@ class LocationController {
     try {
       const locations = await LocationRepository.listLocations()
       const formattedLocations = formatListLocations(locations)
-      console.log('+++++', formattedLocations)
       res.status(200).json({
         locations: formattedLocations
       })
