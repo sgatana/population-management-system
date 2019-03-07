@@ -5,7 +5,7 @@ jobs:
       CC_TEST_REPORTER_ID: 19369e6b1fd265395e6a6002c6bf991c42d706e66f5182e88978b8246be82a54
     docker:
       # specify the version you desire here
-      - image: circleci/node:9.10.1
+      - image: circleci/node:11.10.0
         environment:
          PG_HOST: localhost
          PGUSER: circleci
